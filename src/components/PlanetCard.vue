@@ -34,19 +34,13 @@ function toDisplayableProperty(prop: Planet[keyof Planet]): string {
         <li class="py-1">
           <span class="font-semibold">Population</span> {{ toDisplayableProperty(planet.population) }}
         </li>
-        <li class="py-1">
-          <span class="font-semibold">Climate</span> {{ toDisplayableProperty(planet.climate) }}
-        </li>
-        <li class="py-1">
-          <span class="font-semibold">Terrain</span> {{ toDisplayableProperty(planet.terrain) }}
-        </li>
-        <li class="py-1">
-          <span class="font-semibold">Gravity</span> {{ toDisplayableProperty(planet.gravity) }}
-        </li>
+        <li class="py-1"><span class="font-semibold">Climate</span> {{ toDisplayableProperty(planet.climate) }}</li>
+        <li class="py-1"><span class="font-semibold">Terrain</span> {{ toDisplayableProperty(planet.terrain) }}</li>
+        <li class="py-1"><span class="font-semibold">Gravity</span> {{ toDisplayableProperty(planet.gravity) }}</li>
       </ul>
       <div class="pt-4">
-        <ul class="flex items-center gap-8 text-neutral-500">
-          <li class="flex gap-4">
+        <ul class="flex items-center gap-4 lg:gap-8 text-neutral-500">
+          <li class="flex gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -62,7 +56,7 @@ function toDisplayableProperty(prop: Planet[keyof Planet]): string {
             </svg>
             <span>{{ toDisplayableProperty(planet.films.length) }} </span>
           </li>
-          <li class="flex gap-4">
+          <li class="flex gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -81,7 +75,7 @@ function toDisplayableProperty(prop: Planet[keyof Planet]): string {
             </svg>
             <span>{{ toDisplayableProperty(planet.orbitalPeriod) }}</span>
           </li>
-          <li class="flex gap-4">
+          <li class="flex gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -94,6 +88,15 @@ function toDisplayableProperty(prop: Planet[keyof Planet]): string {
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{{ toDisplayableProperty(planet.rotationPeriod) }}</span>
+          </li>
+          <li class="flex gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+              <path
+                d="M14.916 2.404a.75.75 0 01-.32 1.012l-.596.31V17a1 1 0 01-1 1h-2.26a.75.75 0 01-.75-.75v-3.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.5a.75.75 0 01-.75.75h-3.5a.75.75 0 010-1.5H2V9.957a.75.75 0 01-.596-1.372L2 8.275V5.75a.75.75 0 011.5 0v1.745l10.404-5.41a.75.75 0 011.012.32zM15.861 8.57a.75.75 0 01.736-.025l1.999 1.04A.75.75 0 0118 10.957V16.5h.25a.75.75 0 110 1.5h-2a.75.75 0 01-.75-.75V9.21a.75.75 0 01.361-.64z"
+              />
+            </svg>
+
+            <span>{{ toDisplayableProperty(planet.residents.length) }}</span>
           </li>
         </ul>
       </div>
