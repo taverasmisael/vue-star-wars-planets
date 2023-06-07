@@ -26,5 +26,5 @@ fetchPlanents();
     </div>
   </header>
   <aside class="container mx-auto mb-4"><ListSort /></aside>
-  <main class="p-8"><ListContainer /></main>
+  <main><ListContainer /></main>
 </template>

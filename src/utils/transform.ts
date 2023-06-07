@@ -10,12 +10,12 @@ export function responseToPlanetData(planet: PlanetResponse): Planet {
   };
   return {
     climate: planet.climate.split(", "),
-    films: planet.films.map((u) => new URL(u)),
+    films: planet.films,
     gravity,
     name: planet.name,
     orbitalPeriod: parseInt(planet.orbital_period, 10),
     population: parseInt(planet.population, 10),
-    residents: planet.residents.map((u) => new URL(u)),
+    residents: planet.residents,
     rotationPeriod: parseInt(planet.rotation_period, 10),
     surfaceWater: parseInt(planet.surface_water, 10),
     terrain: planet.terrain.split(", "),

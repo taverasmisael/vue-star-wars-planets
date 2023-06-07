@@ -26,12 +26,12 @@ type PlanetGravity = {
 
 export type Planet = {
   climate: string[];
-  films: URL[];
+  films: string[];
   gravity: PlanetGravity;
   name: string;
   orbitalPeriod: number;
   population: number;
-  residents: URL[];
+  residents: string[];
   rotationPeriod: number;
   surfaceWater: number;
   terrain: string[];
