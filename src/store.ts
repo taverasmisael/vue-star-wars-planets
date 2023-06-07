@@ -6,14 +6,13 @@ import type { Planet, PlanetResponse } from "@/types/planet";
 
 export function createStore() {
   const planets = ref<Planet[]>([]);
+  const next = ref<null | string>("https://swapi.dev/api/planets/");
   const sortOrder = ref<SortingOrder>("ASC");
   const sortKey = ref<SortingKey>("name");
-  const setPlanets = (newPlanets: Planet[], append?: boolean) => {
-    if (append) {
-      planets.value = [...planets.value, ...newPlanets];
-    } else {
-      planets.value = newPlanets;
-    }
+  const fetchStatus = ref<FetchStatus>("idle");
+  const setPlanets = (newPlanets: Planet[]) => {
+    const allPlanets = [...planets.value, ...newPlanets];
+    planets.value = allPlanets//sortPlanets(allPlanets, sortKey.value, sortOrder.value);
   };
 
   const setSortKey = (key: SortingKey) => {
@@ -26,17 +25,33 @@ export function createStore() {
   const sort = computed(() => ({ key: sortKey.value, order: sortOrder.value }));
 
   watch(sort, () => {
-    setPlanets(sortPlanets(planets.value, sortKey.value, sortOrder.value));
+    console.log(planets.value);
+    planets.value = sortPlanets(planets.value, sortKey.value, sortOrder.value);
   });
 
   const fetchPlanents = async () => {
-    const response = await fetch("https://swapi.dev/api/planets/");
-    const data = (await response.json()) as { results: PlanetResponse[] };
-    setPlanets(sortPlanets(data.results.map(responseToPlanetData), sortKey.value, sortOrder.value));
+    if (!next.value) return;
+    if (fetchStatus.value === "pending") return;
+
+    fetchStatus.value = "pending";
+    const response = await fetch(next.value);
+    const data = (await response.json()) as { results: PlanetResponse[]; next: null | string };
+    next.value = data.next;
+    setPlanets(data.results.map(responseToPlanetData));
+
+    fetchStatus.value = "success";
   };
 
-  return { planets, fetchPlanents, setSortKey, setSortOrder, sort: { key: sortKey, order: sortOrder } };
+  return {
+    fetchPlanents,
+    fetchStatus,
+    planets,
+    setSortKey,
+    setSortOrder,
+    sort: { key: sortKey, order: sortOrder },
+  };
 }
 
+type FetchStatus = "idle" | "pending" | "success" | "error";
 export type Store = ReturnType<typeof createStore>;
 export const planetStore = createStore();

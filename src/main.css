@@ -4,9 +4,26 @@
 
 @layer components {
   select {
-    @apply appearance-none w-full rounded-md border bg-white p-2 shadow focus:outline-none focus:ring ring-yellow-400;
+    @apply w-full appearance-none rounded-md border bg-white p-2 shadow ring-yellow-400 focus:outline-none focus:ring;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke='%239ea4b0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
   }
+}
+.planets-move, /* apply transition to moving elements */
+.planets-enter-active,
+.planets-leave-active {
+  transition: all 0.5s ease;
+}
+
+.planets-enter-from,
+.planets-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.planets-leave-active {
+  position: absolute;
 }

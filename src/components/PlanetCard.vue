@@ -39,7 +39,7 @@ function toDisplayableProperty(prop: Planet[keyof Planet]): string {
         <li class="py-1"><span class="font-semibold">Gravity</span> {{ toDisplayableProperty(planet.gravity) }}</li>
       </ul>
       <div class="pt-4">
-        <ul class="flex items-center gap-4 lg:gap-8 text-neutral-500">
+        <ul class="flex items-center gap-4 text-neutral-500 lg:gap-8">
           <li class="flex gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
