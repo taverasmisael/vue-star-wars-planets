@@ -12,7 +12,7 @@ export function createStore() {
   const fetchStatus = ref<FetchStatus>("idle");
   const setPlanets = (newPlanets: Planet[]) => {
     const allPlanets = [...planets.value, ...newPlanets];
-    planets.value = allPlanets//sortPlanets(allPlanets, sortKey.value, sortOrder.value);
+    planets.value = sortPlanets(allPlanets, sortKey.value, sortOrder.value);
   };
 
   const setSortKey = (key: SortingKey) => {
