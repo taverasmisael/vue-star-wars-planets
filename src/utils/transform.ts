@@ -4,6 +4,9 @@ export function responseToPlanetData(planet: PlanetResponse): Planet {
   const gravity = {
     value: planetGravityToNumber(planet.gravity),
     label: planet.gravity,
+    toString() {
+      return this.label;
+    },
   };
   return {
     climate: planet.climate.split(", "),
