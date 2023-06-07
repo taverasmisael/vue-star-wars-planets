@@ -9,9 +9,8 @@ fetchPlanents();
 </script>
 
 <template>
-  <header
-    class="relative mb-8 max-h-fit bg-black bg-[url('https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover p-8 py-16 text-slate-100 md:p-16 lg:py-32"
-  >
+  <div aria-hidden="true" class="bg-stars absolute inset-0 -z-10 bg-cover" />
+  <header class="relative mb-8 max-h-fit p-8 py-16 text-slate-100 md:p-16 lg:py-32">
     <div class="absolute inset-0 bg-black bg-opacity-40"></div>
     <div class="container relative mx-auto text-center">
       <h1

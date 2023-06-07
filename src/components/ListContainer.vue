@@ -28,7 +28,7 @@ onMounted(() => {
     <p v-if="fetchStatus === 'pending'" class="mx-auto mt-10 text-center">
       <img
         class="inline-block w-24 motion-safe:animate-bounce"
-        alt="Loading"
+        alt="Grogu is loading more planets"
         src="/baby-yoda.png"
         width="48"
         height="24"

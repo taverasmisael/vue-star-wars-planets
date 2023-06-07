@@ -7,7 +7,7 @@ const { sort } = planetStore;
 const { order, key } = sort;
 </script>
 <template>
-  <div class="container mx-auto flex items-center gap-8 px-8 text-neutral-800 md:justify-end">
+  <div class="container mx-auto flex items-center gap-8 px-8 md:justify-end">
     <div>
       <label for="sort" class="mb-2 inline-block">Sort by</label>
       <select id="sort" v-model="key">
@@ -18,7 +18,7 @@ const { order, key } = sort;
     <div>
       <label for="order" class="mb-2 inline-block">Order</label>
       <select id="order" v-model="order">
-        <option v-for="order in SortingOrders" :value="order" :key="order">{{ sentenceCase(order) }}</option>
+        <option v-for="order in SortingOrders" :value="order" :key="order">{{   sentenceCase(order === 'ASC' ? 'ascending': 'descending') }}</option>
       </select>
     </div>
   </div>
