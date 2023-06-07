@@ -1,5 +1,5 @@
 // I don't like this `types` structure but I also don't like having the types on the transformers or the store
-// because either way they can become too coupled or create a circular dependency. This is a small project so 
+// because either way they can become too coupled or create a circular dependency. This is a small project so
 // I'm not too worried about it but I'd like to find a better way to structure this.
 
 export type PlanetResponse = {

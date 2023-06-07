@@ -12,12 +12,11 @@ function toDisplayableProperty(prop: Planet[keyof Planet]): string {
   if (Array.isArray(prop)) return prop.length.toString();
   if (Number.isNaN(prop)) return "Unknown";
   return prop.toString();
-  
 }
 </script>
 
 <template>
-  <div class="p-8 rounded-md bg-white shadow">
+  <div class="rounded-md bg-white p-8 shadow">
     <h3>{{ planet.name }}</h3>
     <p v-for="key in SortingKeys" :key="key">{{ headerCase(key) }}: {{ toDisplayableProperty(planet[key]) }}</p>
   </div>
