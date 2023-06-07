@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ListSort from "@/components/ListSort.vue";
 import ListContainer from "@/components/ListContainer.vue";
-import { useStore } from "@/store";
+import { planetStore } from "@/store";
 
-const { fetchPlanents } = useStore();
+const { fetchPlanents } = planetStore;
 
 fetchPlanents();
 </script>

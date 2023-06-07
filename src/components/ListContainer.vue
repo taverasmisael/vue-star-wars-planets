@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useStore } from "@/store";
+import { planetStore } from "@/store";
 import PlanetCard from "./PlanetCard.vue";
 
-const { planets } = useStore();
+const { planets } = planetStore;
 </script>
 <template>
   <div class="container mx-auto p-8">

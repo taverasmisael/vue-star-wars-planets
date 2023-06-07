@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { sentenceCase } from "change-case";
-import { useStore } from "@/store";
+import { planetStore } from "@/store";
 import { SortingKeys, SortingOrders } from "@/utils/sort";
 
-const { sort } = useStore();
+const { sort } = planetStore;
 const { order, key } = sort;
 </script>
 <template>
