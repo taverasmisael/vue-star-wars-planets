@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { type Planet, SortingKeys } from "@/store";
+import type { Planet } from "@/types/planet";
+import { SortingKeys } from "@/utils/sort";
 import { headerCase } from "change-case";
 
-export interface Props {
+export type Props = {
   planet: Planet;
-}
+};
 defineProps<Props>();
 </script>
 

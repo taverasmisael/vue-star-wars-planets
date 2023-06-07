@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { headerCase, constantCase } from "change-case";
-import { useStore, SortingKeys, SortingOrders } from "@/store";
+import { useStore } from "@/store";
+import { SortingKeys, SortingOrders } from "@/utils/sort";
 
 const { sort } = useStore();
 const { order, key } = sort;
